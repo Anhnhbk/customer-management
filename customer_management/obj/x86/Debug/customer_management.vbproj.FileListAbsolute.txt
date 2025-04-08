@@ -1,0 +1,9 @@
+c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\bin\Debug\customer_management.exe
+c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\bin\Debug\customer_management.pdb
+c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\bin\Debug\customer_management.xml
+c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.Form1.resources
+c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.Resources.resources
+c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.vbproj.GenerateResource.Cache
+c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.exe
+c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.xml
+c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.pdb
