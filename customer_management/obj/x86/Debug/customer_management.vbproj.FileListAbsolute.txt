@@ -7,3 +7,4 @@ c:\users\admin\documents\visual studio 2010\Projects\customer_management\custome
 c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.exe
 c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.xml
 c:\users\admin\documents\visual studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.pdb
+C:\Users\Admin\Documents\Visual Studio 2010\Projects\customer_management\customer_management\obj\x86\Debug\customer_management.vbprojResolveAssemblyReference.cache

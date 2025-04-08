@@ -32,13 +32,12 @@ Partial Class Form1
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.labelGender = New System.Windows.Forms.Label()
         Me.comboGender = New System.Windows.Forms.ComboBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.columName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.columnAddress = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.columnPhone = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.columnEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.columnGender = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.customerView = New System.Windows.Forms.DataGridView()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        CType(Me.customerView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'labelCustomerName
@@ -123,57 +122,66 @@ Partial Class Form1
         Me.comboGender.Size = New System.Drawing.Size(151, 21)
         Me.comboGender.TabIndex = 10
         '
-        'DataGridView1
+        'customerView
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.columName, Me.columnAddress, Me.columnPhone, Me.columnEmail, Me.columnGender})
-        Me.DataGridView1.Location = New System.Drawing.Point(13, 168)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(579, 239)
-        Me.DataGridView1.TabIndex = 11
+        Me.customerView.AllowUserToAddRows = False
+        Me.customerView.AllowUserToDeleteRows = False
+        Me.customerView.BackgroundColor = System.Drawing.Color.White
+        Me.customerView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.customerView.Location = New System.Drawing.Point(12, 239)
+        Me.customerView.Name = "customerView"
+        Me.customerView.ReadOnly = True
+        Me.customerView.RowHeadersVisible = False
+        Me.customerView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.customerView.Size = New System.Drawing.Size(579, 239)
+        Me.customerView.TabIndex = 11
         '
-        'columName
+        'btnSearch
         '
-        Me.columName.HeaderText = "Tên"
-        Me.columName.Name = "columName"
-        Me.columName.ReadOnly = True
+        Me.btnSearch.Location = New System.Drawing.Point(12, 176)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(114, 23)
+        Me.btnSearch.TabIndex = 13
+        Me.btnSearch.Text = "Tìm kiếm"
+        Me.btnSearch.UseVisualStyleBackColor = True
         '
-        'columnAddress
+        'btnSave
         '
-        Me.columnAddress.HeaderText = "Địa chỉ"
-        Me.columnAddress.Name = "columnAddress"
-        Me.columnAddress.ReadOnly = True
-        Me.columnAddress.Width = 150
+        Me.btnSave.Location = New System.Drawing.Point(159, 176)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(114, 23)
+        Me.btnSave.TabIndex = 14
+        Me.btnSave.Text = "Lưu"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
-        'columnPhone
+        'btnDelete
         '
-        Me.columnPhone.HeaderText = "Số điện thoại"
-        Me.columnPhone.Name = "columnPhone"
-        Me.columnPhone.ReadOnly = True
+        Me.btnDelete.Location = New System.Drawing.Point(322, 176)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(114, 23)
+        Me.btnDelete.TabIndex = 15
+        Me.btnDelete.Text = "Xóa"
+        Me.btnDelete.UseVisualStyleBackColor = True
         '
-        'columnEmail
+        'btnClear
         '
-        Me.columnEmail.HeaderText = "Email"
-        Me.columnEmail.Name = "columnEmail"
-        Me.columnEmail.ReadOnly = True
-        '
-        'columnGender
-        '
-        Me.columnGender.HeaderText = "Giới tính"
-        Me.columnGender.Name = "columnGender"
-        Me.columnGender.ReadOnly = True
+        Me.btnClear.Location = New System.Drawing.Point(477, 176)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(114, 23)
+        Me.btnClear.TabIndex = 16
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(604, 419)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.ClientSize = New System.Drawing.Size(604, 499)
+        Me.Controls.Add(Me.btnClear)
+        Me.Controls.Add(Me.btnDelete)
+        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btnSearch)
+        Me.Controls.Add(Me.customerView)
         Me.Controls.Add(Me.comboGender)
         Me.Controls.Add(Me.labelGender)
         Me.Controls.Add(Me.txtEmail)
@@ -186,7 +194,7 @@ Partial Class Form1
         Me.Controls.Add(Me.labelCustomerName)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.customerView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -201,11 +209,10 @@ Partial Class Form1
     Friend WithEvents txtEmail As System.Windows.Forms.TextBox
     Friend WithEvents labelGender As System.Windows.Forms.Label
     Friend WithEvents comboGender As System.Windows.Forms.ComboBox
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents columName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents columnAddress As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents columnPhone As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents columnEmail As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents columnGender As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents customerView As System.Windows.Forms.DataGridView
+    Friend WithEvents btnSearch As System.Windows.Forms.Button
+    Friend WithEvents btnSave As System.Windows.Forms.Button
+    Friend WithEvents btnDelete As System.Windows.Forms.Button
+    Friend WithEvents btnClear As System.Windows.Forms.Button
 
 End Class
