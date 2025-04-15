@@ -1,6 +1,5 @@
 ﻿Imports System.Data.Odbc
 Public Class Form1
-
     Private Sub txtCustomerName_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtCustomerName.TextChanged
 
     End Sub
@@ -26,6 +25,7 @@ Public Class Form1
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
+
         Try
             connection.Open()
             sql = "INSERT INTO customers (name, address, phone, email, gender) VALUES (?, ?, ?, ?, ?)"

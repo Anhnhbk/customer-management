@@ -6,8 +6,8 @@ Module Module1
     Public connection As OdbcConnection
     Public Sub connect_db()
         connection = New OdbcConnection("DSN=db_customer;")
-        If connection.State = ConnectionState.Closed Then
-            connection.Open()
-        End If
+        'If connection.State = ConnectionState.Closed Then
+        '    connection.Open()
+        'End If
     End Sub
 End Module
