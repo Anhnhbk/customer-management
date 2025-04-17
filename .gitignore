@@ -13,9 +13,6 @@ _ReSharper*/
 *.ncrunchsolution
 *.dotCover
 
-customer_management/bin/
-customer_management/obj/
-
 # Build results
 [Dd]ebug/
 [Rr]elease/
