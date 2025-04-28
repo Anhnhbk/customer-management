@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         labelCustomerName = New Label()
         txtCustomerName = New TextBox()
         labelAddress = New Label()
@@ -99,7 +99,7 @@ Partial Class Form1
         ' labelEmail
         ' 
         labelEmail.AutoSize = True
-        labelEmail.Location = New Point(12, 109)
+        labelEmail.Location = New Point(12, 148)
         labelEmail.Margin = New Padding(4, 0, 4, 0)
         labelEmail.Name = "labelEmail"
         labelEmail.Size = New Size(46, 20)
@@ -108,7 +108,7 @@ Partial Class Form1
         ' 
         ' txtEmail
         ' 
-        txtEmail.Location = New Point(16, 133)
+        txtEmail.Location = New Point(16, 172)
         txtEmail.Margin = New Padding(4, 5, 4, 5)
         txtEmail.Name = "txtEmail"
         txtEmail.Size = New Size(200, 27)
@@ -117,7 +117,7 @@ Partial Class Form1
         ' labelGender
         ' 
         labelGender.AutoSize = True
-        labelGender.Location = New Point(301, 109)
+        labelGender.Location = New Point(301, 148)
         labelGender.Margin = New Padding(4, 0, 4, 0)
         labelGender.Name = "labelGender"
         labelGender.Size = New Size(65, 20)
@@ -128,7 +128,7 @@ Partial Class Form1
         ' 
         comboGender.FormattingEnabled = True
         comboGender.Items.AddRange(New Object() {"Nam", "Nữ"})
-        comboGender.Location = New Point(305, 130)
+        comboGender.Location = New Point(305, 169)
         comboGender.Margin = New Padding(4, 5, 4, 5)
         comboGender.Name = "comboGender"
         comboGender.Size = New Size(200, 28)
@@ -139,17 +139,17 @@ Partial Class Form1
         customerView.AllowUserToAddRows = False
         customerView.AllowUserToDeleteRows = False
         customerView.BackgroundColor = Color.White
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.Control
-        DataGridViewCellStyle2.Font = New Font("Times New Roman", 10.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle2.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        customerView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = SystemColors.Control
+        DataGridViewCellStyle1.Font = New Font("Times New Roman", 10.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        customerView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         customerView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         customerView.Font = New Font("Tahoma", 12F)
-        customerView.Location = New Point(20, 247)
+        customerView.Location = New Point(16, 368)
         customerView.Margin = New Padding(4, 5, 4, 5)
         customerView.Name = "customerView"
         customerView.ReadOnly = True
@@ -161,7 +161,7 @@ Partial Class Form1
         ' 
         ' btnSearch
         ' 
-        btnSearch.Location = New Point(15, 192)
+        btnSearch.Location = New Point(17, 271)
         btnSearch.Margin = New Padding(4, 5, 4, 5)
         btnSearch.Name = "btnSearch"
         btnSearch.Size = New Size(152, 35)
@@ -171,7 +171,7 @@ Partial Class Form1
         ' 
         ' btnSave
         ' 
-        btnSave.Location = New Point(175, 192)
+        btnSave.Location = New Point(177, 271)
         btnSave.Margin = New Padding(4, 5, 4, 5)
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(152, 35)
@@ -181,7 +181,7 @@ Partial Class Form1
         ' 
         ' btnDelete
         ' 
-        btnDelete.Location = New Point(335, 192)
+        btnDelete.Location = New Point(353, 271)
         btnDelete.Margin = New Padding(4, 5, 4, 5)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(152, 35)
@@ -191,7 +191,7 @@ Partial Class Form1
         ' 
         ' btnClear
         ' 
-        btnClear.Location = New Point(495, 192)
+        btnClear.Location = New Point(529, 271)
         btnClear.Margin = New Padding(4, 5, 4, 5)
         btnClear.Name = "btnClear"
         btnClear.Size = New Size(152, 35)
@@ -201,18 +201,18 @@ Partial Class Form1
         ' 
         ' btnExit
         ' 
-        btnExit.Location = New Point(656, 194)
+        btnExit.Location = New Point(697, 274)
         btnExit.Name = "btnExit"
-        btnExit.Size = New Size(104, 29)
+        btnExit.Size = New Size(94, 29)
         btnExit.TabIndex = 17
-        btnExit.Text = "Thoát"
+        btnExit.Text = "Exit"
         btnExit.UseVisualStyleBackColor = True
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(805, 642)
+        ClientSize = New Size(805, 768)
         Controls.Add(btnExit)
         Controls.Add(btnClear)
         Controls.Add(btnDelete)
