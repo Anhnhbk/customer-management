@@ -1,109 +1,113 @@
 ﻿Imports System.Data.Odbc
-Imports System.Diagnostics.Eventing.Reader
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Text.RegularExpressions
 
 Public Class Signup
-    Private Sub actClear()
+
+    ' Clear input fields
+    Private Sub ClearFields()
         txtUsername.Clear()
         txtPassw.Clear()
         txtMail.Clear()
     End Sub
-    Public Function GetMD5(ByVal str As String) As String
-        Dim md5 As MD5 = MD5.Create()
-        Dim inputBytes As Byte() = Encoding.ASCII.GetBytes(str)
-        Dim hashBytes As Byte() = md5.ComputeHash(inputBytes)
 
-        Dim sb As New StringBuilder()
-        For i As Integer = 0 To hashBytes.Length - 1
-            sb.Append(hashBytes(i).ToString("x2"))
-        Next
-
-        Return sb.ToString()
-    End Function
-
-    Private Function chkUser(ByVal username As String) As Boolean
-        Try
-            connection.Open()
-            Dim sql As String = "SELECT COUNT(*) FROM users WHERE user_name = ?"
-
-            Using dml As New OdbcCommand(sql, connection)
-                dml.Parameters.AddWithValue("@user_name", username)
-                Dim count As Integer = CInt(dml.ExecuteScalar())
-                Return count > 0
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Lỗi: " & ex.Message)
-        Finally
-            connection.Close()
-        End Try
-    End Function
-
+    ' Validate email format
     Public Function IsValidEmail(ByVal email As String) As Boolean
         Dim pattern As String = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-        Dim regex As New Regex(pattern)
-        Return regex.IsMatch(email)
+        Return Regex.IsMatch(email, pattern)
+    End Function
+
+    ' Check if username exists
+    Private Function IsUsernameTaken(ByVal username As String) As Boolean
+        Dim sql As String = "SELECT COUNT(*) FROM users WHERE user_name = ?"
+        Try
+            ' Ensure the connection is initialized
+            If connection Is Nothing Then
+                connect_db()
+            End If
+
+            ' Open the connection if it is closed
+            If connection.State = ConnectionState.Closed Then
+                connection.Open()
+            End If
+
+            Using command As New OdbcCommand(sql, connection)
+                command.Parameters.Add("user_name", OdbcType.VarChar).Value = username
+                Return CInt(command.ExecuteScalar()) > 0
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while checking username: " & ex.Message)
+            Return False
+        Finally
+            ' Close the connection if it is open
+            If connection IsNot Nothing AndAlso connection.State = ConnectionState.Open Then
+                connection.Close()
+            End If
+        End Try
+
     End Function
 
     Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
         Dim username As String = txtUsername.Text.Trim()
         Dim password As String = txtPassw.Text.Trim()
-        Dim mail As String = txtMail.Text.Trim()
+        Dim email As String = txtMail.Text.Trim()
 
-        'Check Username, Password, Mail: Null
-        If String.IsNullOrEmpty(username) Or String.IsNullOrEmpty(password) Or String.IsNullOrEmpty(mail) Then
-            MessageBox.Show("Username, Password, E-mail không được để trống!")
+        ' Validate inputs
+        If String.IsNullOrEmpty(username) OrElse String.IsNullOrEmpty(password) OrElse String.IsNullOrEmpty(email) Then
+            MessageBox.Show("Username, Password, Email không được để trống!")
             Return
-        Else
-            'Check User unique
-            If chkUser(username) Then
-                MessageBox.Show("Username đã tồn tại. Vui lòng chọn tên khác!")
-                Return
-            End If
-
-            'Check Length Pass < 6
-            If password.Length < 6 Then
-                MessageBox.Show("Pass phải có từ 6 ký tự trở lên!")
-                Return
-            Else
-
-            End If
-            'Check Mail type
-            If Not IsValidEmail(mail) Then
-                MessageBox.Show("E-mail không hợp lệ!")
-                Return
-            End If
         End If
 
-        Dim hashedPassword As String = GetMD5(password)
+        ' Check email format
+        If Not IsValidEmail(email) Then
+            MessageBox.Show("E-mail không hợp lệ!")
+            Return
+        End If
+
+        ' Check password length
+        If password.Length < 6 Then
+            MessageBox.Show("Password phải có từ 6 ký tự trở lên!")
+            Return
+        End If
+
+        ' Check if username already exists
+        If IsUsernameTaken(username) Then
+            MessageBox.Show("Username đã tồn tại. Vui lòng chọn tên khác!")
+            Return
+        End If
+
+        ' Hash the password
+        Dim hashedPassword As String = HashPassword(password)
+
+        ' Insert user into database
+        Dim sql As String = "INSERT INTO users (user_name, user_password, user_mail) VALUES (?, ?, ?)"
         Try
-            connection.Open()
-            Dim sql As String = "INSERT INTO users (user_name, user_password, user_mail) VALUES (?, ?, ?)"
+            If connection.State = ConnectionState.Closed Then
+                connection.Open()
+            End If
 
-            Using dml As New OdbcCommand(sql, connection)
+            Using command As New OdbcCommand(sql, connection)
+                command.Parameters.Add("user_name", OdbcType.VarChar).Value = username
+                command.Parameters.Add("user_password", OdbcType.VarChar).Value = hashedPassword
+                command.Parameters.Add("user_mail", OdbcType.VarChar).Value = email
 
-                dml.Parameters.AddWithValue("@user_name", username)
-                dml.Parameters.AddWithValue("@user_password", hashedPassword)
-                dml.Parameters.AddWithValue("@user_mail", mail)
-
-                dml.ExecuteNonQuery()
+                command.ExecuteNonQuery()
                 MessageBox.Show("Đăng ký thành công!")
-                actClear()
-                Dim frm As New Signin()
-                frm.ShowDialog()
+                ClearFields()
+                Dim signinForm As New Signin()
+                signinForm.ShowDialog()
             End Using
         Catch ex As Exception
-            MessageBox.Show("Lỗi: " & ex.Message)
+            MessageBox.Show("An error occurred: " & ex.Message)
         Finally
-            connection.Close()
+            If connection.State = ConnectionState.Open Then
+                connection.Close()
+            End If
         End Try
     End Sub
 
-    Private Sub Signup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        connect_db()
-    End Sub
-
+    ' Close the form
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Close()
     End Sub
