@@ -1,7 +1,8 @@
 ﻿Imports System.Data.Odbc
+Imports System.Security.Cryptography
+Imports System.Text
 
 Public Class Signin
-    Public Property SignInUser As String
 
     Private Sub btnSignin_Click(sender As Object, e As EventArgs) Handles btnSignin.Click
         Dim username As String = txtUsername.Text.Trim()
@@ -25,13 +26,11 @@ Public Class Signin
                 command.Parameters.Add("user_password", OdbcType.VarChar).Value = password
 
                 Dim count As Integer = CInt(command.ExecuteScalar())
+                MessageBox.Show(count.ToString())
                 If count > 0 Then
                     MessageBox.Show("Đăng nhập thành công!")
-                    SignInUser = username
-                    Me.DialogResult = DialogResult.OK
-                    Me.Close()
-                    'Dim frmForm1 As New Form1()
-                    'frmForm1.ShowDialog()
+                    Dim frmForm1 As New Form1()
+                    frmForm1.ShowDialog()
                 Else
                     MessageBox.Show("Sai username hoặc mật khẩu.")
                 End If
@@ -46,15 +45,15 @@ Public Class Signin
             End If
         End Try
     End Sub
-
-    ' Handle signup button click
     Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
         Dim frmSignup As New Signup()
         frmSignup.ShowDialog()
 
     End Sub
+    Private Sub Signin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        connect_db()
+    End Sub
 
-    ' Close the form
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Close()
     End Sub

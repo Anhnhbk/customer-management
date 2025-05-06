@@ -1,5 +1,5 @@
 ﻿Imports System.Data.Odbc
-Public Class Form1
+Public Class Customer
     Private Sub txtCustomerName_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtCustomerName.TextChanged
 
     End Sub
@@ -140,9 +140,62 @@ Public Class Form1
             comboGender.Text = row.Cells("gender").Value.ToString()
         End If
     End Sub
-
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Customer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect_db()
+        currentState = FormMain.FormMainState
+        MessageBox.Show("Current state: " & currentState.ToString())
+        UpdateUI(currentState)
         LoadData()
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Me.Close()
+    End Sub
+
+    Friend currentState As FormState
+
+    Public Sub UpdateUI(currentState)
+        Select Case currentState
+            Case FormState.Searching
+                btnSearch.Enabled = True
+                btnSave.Enabled = False
+                btnDelete.Enabled = True
+                btnClear.Enabled = True
+                btnExit.Enabled = True
+                txtCustomerName.Enabled = True
+                txtCustomerName.Enabled = True
+                txtAddress.Enabled = True
+                txtPhone.Enabled = True
+                txtEmail.Enabled = True
+                comboGender.Enabled = True
+                customerView.Enabled = True
+
+            Case FormState.Adding
+                btnSearch.Enabled = False
+                btnSave.Enabled = True
+                btnDelete.Enabled = False
+                btnClear.Enabled = True
+                btnExit.Enabled = True
+                txtCustomerName.Enabled = True
+                txtCustomerName.Enabled = True
+                txtAddress.Enabled = True
+                txtPhone.Enabled = True
+                txtEmail.Enabled = True
+                comboGender.Enabled = True
+                customerView.Enabled = False
+
+            Case FormState.Editing
+                btnSearch.Enabled = True
+                btnSave.Enabled = True
+                btnDelete.Enabled = True
+                btnClear.Enabled = True
+                btnExit.Enabled = True
+                txtCustomerName.Enabled = True
+                txtCustomerName.Enabled = True
+                txtAddress.Enabled = True
+                txtPhone.Enabled = True
+                txtEmail.Enabled = True
+                comboGender.Enabled = True
+        End Select
     End Sub
 End Class
