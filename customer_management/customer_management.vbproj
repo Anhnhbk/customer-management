@@ -105,10 +105,10 @@
     <Compile Include="FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Signin.Designer.vb">
-      <DependentUpon>Signin.vb</DependentUpon>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="Signin.vb">
+    <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -123,10 +123,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Signup.Designer.vb">
-      <DependentUpon>Signup.vb</DependentUpon>
+    <Compile Include="AddUser.Designer.vb">
+      <DependentUpon>AddUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="Signup.vb">
+    <Compile Include="AddUser.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -137,8 +137,8 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Signin.resx">
-      <DependentUpon>Signin.vb</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -146,8 +146,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Signup.resx">
-      <DependentUpon>Signup.vb</DependentUpon>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

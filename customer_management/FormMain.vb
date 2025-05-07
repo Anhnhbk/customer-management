@@ -11,7 +11,7 @@
         btnEditCustomer.Visible = False
         btnSearch.Visible = False
         btnExit.Visible = True
-        btnSignIn.Visible = True
+        btnLogin.Visible = True
 
         lblUserInfo.Text = ""
 
@@ -21,7 +21,7 @@
         btnAddCustomer.Visible = True
         btnEditCustomer.Visible = True
         btnSearch.Visible = True
-        btnSignIn.Visible = False
+        btnLogin.Visible = False
 
         lblUserInfo.Text = "User: " & loggedInUser
     End Sub
@@ -29,7 +29,6 @@
     Private Sub btnAddCustomer_Click(sender As Object, e As EventArgs) Handles btnAddCustomer.Click
         ' Show Add Customer form
         FormMainState = FormState.Adding
-        'UpdateUI()
 
         Dim frmCustomer As New Customer()
         frmCustomer.ShowDialog()
@@ -38,7 +37,6 @@
     Private Sub btnEditCustomer_Click(sender As Object, e As EventArgs) Handles btnEditCustomer.Click
         ' Show Customer List form
         FormMainState = FormState.Editing
-        'UpdateUI()
         Dim frmCustomer As New Customer()
         frmCustomer.ShowDialog()
     End Sub
@@ -46,7 +44,6 @@
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         ' Show Search form
         FormMainState = FormState.Searching
-        'UpdateUI()
         Dim frmCustomer As New Customer()
         frmCustomer.ShowDialog()
     End Sub
@@ -56,10 +53,10 @@
         Application.Exit()
     End Sub
 
-    Private Sub btnSignIn_Click(sender As Object, e As EventArgs) Handles btnSignIn.Click
-        Dim SigninForm As New Signin()
-        If SigninForm.ShowDialog() = DialogResult.OK Then
-            loggedInUser = SigninForm.SignInUser
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        Dim LoginForm As New Login()
+        If LoginForm.ShowDialog() = DialogResult.OK Then
+            loggedInUser = LoginForm.LoginUser
             UpdateUIAfterLogin()
         End If
     End Sub

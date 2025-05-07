@@ -10,10 +10,7 @@ Module Module1
         If connection Is Nothing Then
             connection = New OdbcConnection("DSN=db_customer;")
         End If
-        'connection = New OdbcConnection("DSN=db_customer;")
-        'If connection.State = ConnectionState.Closed Then
-        '    connection.Open()
-        'End If
+
     End Sub
 
     ' Hash password using MD5
@@ -35,52 +32,5 @@ Module Module1
         Editing
         Searching
     End Enum
-    ' Declare a variable to hold the current state of the form
-    'Public currentState As FormState
-
-    'Public Sub UpdateUI(currentState)
-    '    Select Case currentState
-    '        Case FormState.Searching
-    '            Customer.btnSearch.Enabled = True
-    '            Customer.btnSave.Enabled = False
-    '            Customer.btnDelete.Enabled = True
-    '            Customer.btnClear.Enabled = True
-    '            Customer.btnExit.Enabled = True
-    '            Customer.txtCustomerName.Enabled = True
-    '            Customer.txtCustomerName.Enabled = True
-    '            Customer.txtAddress.Enabled = True
-    '            Customer.txtPhone.Enabled = True
-    '            Customer.txtEmail.Enabled = True
-    '            Customer.comboGender.Enabled = True
-    '            Customer.customerView.Enabled = True
-
-    '        Case FormState.Adding
-    '            Customer.btnSearch.Enabled = False
-    '            Customer.btnSave.Enabled = True
-    '            Customer.btnDelete.Enabled = False
-    '            Customer.btnClear.Enabled = True
-    '            Customer.btnExit.Enabled = True
-    '            Customer.txtCustomerName.Enabled = True
-    '            Customer.txtCustomerName.Enabled = True
-    '            Customer.txtAddress.Enabled = True
-    '            Customer.txtPhone.Enabled = True
-    '            Customer.txtEmail.Enabled = True
-    '            Customer.comboGender.Enabled = True
-    '            Customer.customerView.Enabled = False
-
-    '        Case FormState.Editing
-    '            Customer.btnSearch.Enabled = True
-    '            Customer.btnSave.Enabled = True
-    '            Customer.btnDelete.Enabled = True
-    '            Customer.btnClear.Enabled = True
-    '            Customer.btnExit.Enabled = True
-    '            Customer.txtCustomerName.Enabled = True
-    '            Customer.txtCustomerName.Enabled = True
-    '            Customer.txtAddress.Enabled = True
-    '            Customer.txtPhone.Enabled = True
-    '            Customer.txtEmail.Enabled = True
-    '            Customer.comboGender.Enabled = True
-    '    End Select
-    'End Sub
 
 End Module

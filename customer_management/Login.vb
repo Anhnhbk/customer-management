@@ -1,9 +1,9 @@
 ﻿Imports System.Data.Odbc
 
-Public Class Signin
-    Public Property SignInUser As String
+Public Class Login
+    Public Property LoginUser As String
 
-    Private Sub btnSignin_Click(sender As Object, e As EventArgs) Handles btnSignin.Click
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim username As String = txtUsername.Text.Trim()
         Dim password As String = HashPassword(txtPassw.Text.Trim())
         'Dim hashedPassword As String = HashPassword(password)
@@ -27,11 +27,10 @@ Public Class Signin
                 Dim count As Integer = CInt(command.ExecuteScalar())
                 If count > 0 Then
                     MessageBox.Show("Đăng nhập thành công!")
-                    SignInUser = username
+                    LoginUser = username
                     Me.DialogResult = DialogResult.OK
                     Me.Close()
-                    'Dim frmForm1 As New Form1()
-                    'frmForm1.ShowDialog()
+
                 Else
                     MessageBox.Show("Sai username hoặc mật khẩu.")
                 End If
@@ -48,8 +47,8 @@ Public Class Signin
     End Sub
 
     ' Handle signup button click
-    Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
-        Dim frmSignup As New Signup()
+    Private Sub btnSignup_Click(sender As Object, e As EventArgs)
+        Dim frmSignup As New AddUser()
         frmSignup.ShowDialog()
 
     End Sub

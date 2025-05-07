@@ -143,7 +143,6 @@ Public Class Customer
     Private Sub Customer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect_db()
         currentState = FormMain.FormMainState
-        MessageBox.Show("Current state: " & currentState.ToString())
         UpdateUI(currentState)
         LoadData()
     End Sub
@@ -159,7 +158,7 @@ Public Class Customer
             Case FormState.Searching
                 btnSearch.Enabled = True
                 btnSave.Enabled = False
-                btnDelete.Enabled = True
+                btnDelete.Enabled = False
                 btnClear.Enabled = True
                 btnExit.Enabled = True
                 txtCustomerName.Enabled = True
@@ -167,8 +166,8 @@ Public Class Customer
                 txtAddress.Enabled = True
                 txtPhone.Enabled = True
                 txtEmail.Enabled = True
-                comboGender.Enabled = True
-                customerView.Enabled = True
+                comboGender.Enabled = False
+                customerView.Enabled = False
 
             Case FormState.Adding
                 btnSearch.Enabled = False
@@ -188,7 +187,7 @@ Public Class Customer
                 btnSearch.Enabled = True
                 btnSave.Enabled = True
                 btnDelete.Enabled = True
-                btnClear.Enabled = True
+                btnClear.Enabled = False
                 btnExit.Enabled = True
                 txtCustomerName.Enabled = True
                 txtCustomerName.Enabled = True
