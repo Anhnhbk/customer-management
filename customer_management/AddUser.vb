@@ -136,6 +136,7 @@ Public Class AddUser
                 command.ExecuteNonQuery()
                 MessageBox.Show("Đăng ký thành công!")
                 ClearFields()
+                Me.Close()
             End Using
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
@@ -148,7 +149,7 @@ Public Class AddUser
 
     ' Close the form
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Close()
+        Me.Close()
     End Sub
 
     Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load

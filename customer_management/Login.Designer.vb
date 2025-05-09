@@ -33,7 +33,7 @@ Partial Class Login
         'txtUsername
         '
         Me.txtUsername.Location = New System.Drawing.Point(132, 52)
-        Me.txtUsername.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(2)
         Me.txtUsername.Multiline = True
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(187, 27)
@@ -42,7 +42,7 @@ Partial Class Login
         'txtPassw
         '
         Me.txtPassw.Location = New System.Drawing.Point(132, 120)
-        Me.txtPassw.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPassw.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPassw.Multiline = True
         Me.txtPassw.Name = "txtPassw"
         Me.txtPassw.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -75,7 +75,7 @@ Partial Class Login
         '
         Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.Location = New System.Drawing.Point(107, 175)
-        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(68, 33)
         Me.btnLogin.TabIndex = 2
@@ -86,7 +86,7 @@ Partial Class Login
         '
         Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.Location = New System.Drawing.Point(213, 175)
-        Me.btnExit.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(2)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(65, 33)
         Me.btnExit.TabIndex = 4
@@ -104,7 +104,7 @@ Partial Class Login
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtPassw)
         Me.Controls.Add(Me.txtUsername)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Login"
         Me.Text = "Login"
         Me.ResumeLayout(False)
