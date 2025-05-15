@@ -13,7 +13,7 @@
 
     ' Resets the UI to its default state
     Private Sub ResetUI()
-        btnAddUser.Visible = False
+        btnUser.Visible = False
         btnAddCustomer.Visible = False
         btnEditCustomer.Visible = False
         btnSearch.Visible = False
@@ -23,8 +23,8 @@
     End Sub
 
     ' Configures the UI based on the provided parameters
-    Private Sub ConfigureUI(addUser As Boolean, addCustomer As Boolean, editCustomer As Boolean, search As Boolean, logout As Boolean, login As Boolean, role As String)
-        btnAddUser.Visible = addUser
+    Private Sub ConfigureUI(handleUser As Boolean, addCustomer As Boolean, editCustomer As Boolean, search As Boolean, logout As Boolean, login As Boolean, role As String)
+        btnUser.Visible = handleUser
         btnAddCustomer.Visible = addCustomer
         btnEditCustomer.Visible = editCustomer
         btnSearch.Visible = search
@@ -78,10 +78,10 @@
     End Sub
 
     ' Handles the add user button click event
-    Private Sub btnAddUser_Click(sender As Object, e As EventArgs) Handles btnAddUser.Click
+    Private Sub btnAddUser_Click(sender As Object, e As EventArgs)
         ' Show the Add User form
-        Dim frmAddUser As New AddUser()
-        frmAddUser.ShowDialog()
+        'Dim frmAddUser As New AddUser()
+        'frmAddUser.ShowDialog()
     End Sub
 
     ' Handles the add customer button click event
@@ -117,7 +117,13 @@
     ' Handles the exit button click event
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         ' Exit the application
-        Application.Exit()
+        If MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            Application.Exit()
+        End If
     End Sub
 
+    Private Sub btnUser_Click(sender As Object, e As EventArgs) Handles btnUser.Click
+        Dim frmUserManager As New UserManager()
+        frmUserManager.ShowDialog()
+    End Sub
 End Class

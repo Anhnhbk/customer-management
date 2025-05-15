@@ -22,140 +22,149 @@ Partial Class AddUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnAddUser = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtPassw = New System.Windows.Forms.TextBox()
-        Me.txtUsername = New System.Windows.Forms.TextBox()
-        Me.txtMail = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnExit = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cmbRole = New System.Windows.Forms.ComboBox()
-        Me.SuspendLayout()
-        '
-        'btnAddUser
-        '
-        Me.btnAddUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddUser.Location = New System.Drawing.Point(54, 220)
-        Me.btnAddUser.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnAddUser.Name = "btnAddUser"
-        Me.btnAddUser.Size = New System.Drawing.Size(88, 33)
-        Me.btnAddUser.TabIndex = 3
-        Me.btnAddUser.Text = "Add User"
-        Me.btnAddUser.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(51, 88)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 17)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Password:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(51, 38)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(91, 17)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "User name:"
-        '
-        'txtPassw
-        '
-        Me.txtPassw.Location = New System.Drawing.Point(135, 78)
-        Me.txtPassw.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtPassw.Multiline = True
-        Me.txtPassw.Name = "txtPassw"
-        Me.txtPassw.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassw.Size = New System.Drawing.Size(187, 27)
-        Me.txtPassw.TabIndex = 1
-        '
-        'txtUsername
-        '
-        Me.txtUsername.Location = New System.Drawing.Point(135, 32)
-        Me.txtUsername.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtUsername.Multiline = True
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(187, 27)
-        Me.txtUsername.TabIndex = 0
-        '
-        'txtMail
-        '
-        Me.txtMail.Location = New System.Drawing.Point(135, 131)
-        Me.txtMail.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtMail.Multiline = True
-        Me.txtMail.Name = "txtMail"
-        Me.txtMail.Size = New System.Drawing.Size(187, 27)
-        Me.txtMail.TabIndex = 2
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(51, 141)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(58, 17)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "E-mail:"
-        '
-        'btnExit
-        '
-        Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.Location = New System.Drawing.Point(159, 220)
-        Me.btnExit.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(84, 33)
-        Me.btnExit.TabIndex = 4
-        Me.btnExit.Text = "Exit"
-        Me.btnExit.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(51, 179)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(46, 17)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Role:"
-        '
-        'cmbRole
-        '
-        Me.cmbRole.FormattingEnabled = True
-        Me.cmbRole.Location = New System.Drawing.Point(135, 175)
-        Me.cmbRole.Name = "cmbRole"
-        Me.cmbRole.Size = New System.Drawing.Size(121, 21)
-        Me.cmbRole.TabIndex = 8
-        '
-        'AddUser
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(398, 275)
-        Me.Controls.Add(Me.cmbRole)
-        Me.Controls.Add(Me.btnExit)
-        Me.Controls.Add(Me.btnAddUser)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtMail)
-        Me.Controls.Add(Me.txtPassw)
-        Me.Controls.Add(Me.txtUsername)
-        Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "AddUser"
-        Me.Text = "Sign up"
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        btnAddUser = New Button()
+        Label2 = New Label()
+        Label1 = New Label()
+        txtPassw = New TextBox()
+        txtUsername = New TextBox()
+        txtMail = New TextBox()
+        Label3 = New Label()
+        btnExit = New Button()
+        Label4 = New Label()
+        cmbRole = New ComboBox()
+        btnClear = New Button()
+        SuspendLayout()
+        ' 
+        ' btnAddUser
+        ' 
+        btnAddUser.Font = New Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnAddUser.Location = New Point(58, 245)
+        btnAddUser.Margin = New Padding(3, 2, 3, 2)
+        btnAddUser.Name = "btnAddUser"
+        btnAddUser.Size = New Size(88, 38)
+        btnAddUser.TabIndex = 3
+        btnAddUser.Text = "Save"
+        btnAddUser.UseVisualStyleBackColor = True
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(55, 92)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(82, 17)
+        Label2.TabIndex = 6
+        Label2.Text = "Password:"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(55, 35)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(91, 17)
+        Label1.TabIndex = 7
+        Label1.Text = "User name:"
+        ' 
+        ' txtPassw
+        ' 
+        txtPassw.Location = New Point(153, 81)
+        txtPassw.Margin = New Padding(3, 2, 3, 2)
+        txtPassw.Multiline = True
+        txtPassw.Name = "txtPassw"
+        txtPassw.PasswordChar = "*"c
+        txtPassw.Size = New Size(209, 30)
+        txtPassw.TabIndex = 1
+        ' 
+        ' txtUsername
+        ' 
+        txtUsername.Location = New Point(153, 28)
+        txtUsername.Margin = New Padding(3, 2, 3, 2)
+        txtUsername.Multiline = True
+        txtUsername.Name = "txtUsername"
+        txtUsername.Size = New Size(209, 30)
+        txtUsername.TabIndex = 0
+        ' 
+        ' txtMail
+        ' 
+        txtMail.Location = New Point(153, 143)
+        txtMail.Margin = New Padding(3, 2, 3, 2)
+        txtMail.Multiline = True
+        txtMail.Name = "txtMail"
+        txtMail.Size = New Size(209, 30)
+        txtMail.TabIndex = 2
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Location = New Point(55, 154)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(58, 17)
+        Label3.TabIndex = 6
+        Label3.Text = "E-mail:"
+        ' 
+        ' btnExit
+        ' 
+        btnExit.Font = New Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExit.Location = New Point(264, 245)
+        btnExit.Margin = New Padding(3, 2, 3, 2)
+        btnExit.Name = "btnExit"
+        btnExit.Size = New Size(98, 38)
+        btnExit.TabIndex = 4
+        btnExit.Text = "Exit"
+        btnExit.UseVisualStyleBackColor = True
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label4.Location = New Point(55, 197)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(46, 17)
+        Label4.TabIndex = 6
+        Label4.Text = "Role:"
+        ' 
+        ' cmbRole
+        ' 
+        cmbRole.FormattingEnabled = True
+        cmbRole.Location = New Point(153, 193)
+        cmbRole.Margin = New Padding(4, 4, 4, 4)
+        cmbRole.Name = "cmbRole"
+        cmbRole.Size = New Size(136, 23)
+        cmbRole.TabIndex = 8
+        ' 
+        ' btnClear
+        ' 
+        btnClear.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnClear.Location = New Point(169, 245)
+        btnClear.Name = "btnClear"
+        btnClear.Size = New Size(89, 38)
+        btnClear.TabIndex = 9
+        btnClear.Text = "Clear"
+        btnClear.UseVisualStyleBackColor = True
+        ' 
+        ' AddUser
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(483, 326)
+        Controls.Add(btnClear)
+        Controls.Add(cmbRole)
+        Controls.Add(btnExit)
+        Controls.Add(btnAddUser)
+        Controls.Add(Label4)
+        Controls.Add(Label3)
+        Controls.Add(Label2)
+        Controls.Add(Label1)
+        Controls.Add(txtMail)
+        Controls.Add(txtPassw)
+        Controls.Add(txtUsername)
+        Margin = New Padding(3, 2, 3, 2)
+        Name = "AddUser"
+        Text = "Add User"
+        ResumeLayout(False)
+        PerformLayout()
 
     End Sub
 
@@ -169,4 +178,5 @@ Partial Class AddUser
     Friend WithEvents btnExit As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents cmbRole As ComboBox
+    Friend WithEvents btnClear As Button
 End Class

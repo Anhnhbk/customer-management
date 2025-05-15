@@ -3,6 +3,15 @@ Imports System.Text.RegularExpressions
 
 Public Class AddUser
 
+    Private connection As OdbcConnection
+    Private userId As Integer = -1
+
+    Public Sub New(conn As OdbcConnection, Optional editUserId As Integer = -1)
+        InitializeComponent()
+        connection = conn
+        userId = editUserId
+    End Sub
+
     ' Clear input fields
     Private Sub ClearFields()
         txtUsername.Clear()
@@ -12,7 +21,7 @@ Public Class AddUser
     End Sub
 
     ' Populate comboRole with data from the roles table
-    Private Sub LoadRoles()
+    Private Sub LoadRoles(Optional roleID As Integer = 2)
         Dim sql As String = "SELECT role_id, role_name FROM roles"
         Dim dt As New DataTable()
         Try
@@ -31,13 +40,13 @@ Public Class AddUser
                 cmbRole.DataSource = dt
                 cmbRole.DisplayMember = "role_name"
                 cmbRole.ValueMember = "role_id"
-
             End Using
 
             ' Set default role to role_name = "staff"
             For i As Integer = 0 To cmbRole.Items.Count - 1
                 Dim row As DataRowView = CType(cmbRole.Items(i), DataRowView)
-                If row("role_id") = 2 Then
+                'If roleID Then
+                If row("role_id") = roleID Then
                     cmbRole.SelectedIndex = i
                     Exit For
                 End If
@@ -153,6 +162,29 @@ Public Class AddUser
     End Sub
 
     Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadRoles()
+        If userId <> -1 Then
+            ' Load user info for editing
+            Try
+                connection.Open()
+                Dim sql As String = "SELECT user_name, user_mail, role_id FROM users WHERE user_id = ?"
+                Using cmd As New OdbcCommand(sql, connection)
+                    cmd.Parameters.AddWithValue("@id", userId)
+                    Using reader = cmd.ExecuteReader()
+                        If reader.Read() Then
+                            txtUsername.Text = reader("user_name").ToString()
+                            txtMail.Text = reader("user_mail").ToString()
+                            LoadRoles(reader("role_id"))
+                        End If
+                    End Using
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Lỗi: " & ex.Message)
+            Finally
+                connection.Close()
+            End Try
+        Else
+            LoadRoles()
+        End If
+
     End Sub
 End Class
