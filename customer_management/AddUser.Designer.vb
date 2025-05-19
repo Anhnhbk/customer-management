@@ -22,7 +22,7 @@ Partial Class AddUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        btnAddUser = New Button()
+        btnSave = New Button()
         Label2 = New Label()
         Label1 = New Label()
         txtPassw = New TextBox()
@@ -35,16 +35,16 @@ Partial Class AddUser
         btnClear = New Button()
         SuspendLayout()
         ' 
-        ' btnAddUser
+        ' btnSave
         ' 
-        btnAddUser.Font = New Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnAddUser.Location = New Point(58, 245)
-        btnAddUser.Margin = New Padding(3, 2, 3, 2)
-        btnAddUser.Name = "btnAddUser"
-        btnAddUser.Size = New Size(88, 38)
-        btnAddUser.TabIndex = 3
-        btnAddUser.Text = "Save"
-        btnAddUser.UseVisualStyleBackColor = True
+        btnSave.Font = New Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnSave.Location = New Point(58, 245)
+        btnSave.Margin = New Padding(3, 2, 3, 2)
+        btnSave.Name = "btnSave"
+        btnSave.Size = New Size(88, 38)
+        btnSave.TabIndex = 3
+        btnSave.Text = "Save"
+        btnSave.UseVisualStyleBackColor = True
         ' 
         ' Label2
         ' 
@@ -129,7 +129,7 @@ Partial Class AddUser
         ' 
         cmbRole.FormattingEnabled = True
         cmbRole.Location = New Point(153, 193)
-        cmbRole.Margin = New Padding(4, 4, 4, 4)
+        cmbRole.Margin = New Padding(4)
         cmbRole.Name = "cmbRole"
         cmbRole.Size = New Size(136, 23)
         cmbRole.TabIndex = 8
@@ -152,7 +152,7 @@ Partial Class AddUser
         Controls.Add(btnClear)
         Controls.Add(cmbRole)
         Controls.Add(btnExit)
-        Controls.Add(btnAddUser)
+        Controls.Add(btnSave)
         Controls.Add(Label4)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -168,7 +168,7 @@ Partial Class AddUser
 
     End Sub
 
-    Friend WithEvents btnAddUser As Button
+    Friend WithEvents btnSave As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents txtPassw As TextBox

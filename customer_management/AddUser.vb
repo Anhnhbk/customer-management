@@ -96,71 +96,6 @@ Public Class AddUser
 
     End Function
 
-    Private Sub btnAddUser_Click(sender As Object, e As EventArgs) Handles btnAddUser.Click
-        Dim username As String = txtUsername.Text.Trim()
-        Dim password As String = txtPassw.Text.Trim()
-        Dim email As String = txtMail.Text.Trim()
-        Dim roleid As Integer = Convert.ToInt32(cmbRole.SelectedValue)
-
-        ' Validate inputs
-        If String.IsNullOrEmpty(username) OrElse String.IsNullOrEmpty(password) OrElse String.IsNullOrEmpty(email) OrElse String.IsNullOrEmpty(roleid) Then
-            MessageBox.Show("Username, Password, Email, and Role không được để trống!")
-            Return
-        End If
-
-        ' Check email format
-        If Not IsValidEmail(email) Then
-            MessageBox.Show("E-mail không hợp lệ!")
-            Return
-        End If
-
-        ' Check password length
-        If password.Length < 6 Then
-            MessageBox.Show("Password phải có từ 6 ký tự trở lên!")
-            Return
-        End If
-
-        ' Check if username already exists
-        If IsUsernameTaken(username) Then
-            MessageBox.Show("Username đã tồn tại. Vui lòng chọn tên khác!")
-            Return
-        End If
-
-        ' Hash the password
-        Dim hashedPassword As String = HashPassword(password)
-
-        ' Insert user into database
-        Dim sql As String = "INSERT INTO users (user_name, user_password, user_mail, role_id) VALUES (?, ?, ?, ?)"
-        Try
-            If connection.State = ConnectionState.Closed Then
-                connection.Open()
-            End If
-
-            Using command As New OdbcCommand(sql, connection)
-                command.Parameters.Add("user_name", OdbcType.VarChar).Value = username
-                command.Parameters.Add("user_password", OdbcType.VarChar).Value = hashedPassword
-                command.Parameters.Add("user_mail", OdbcType.VarChar).Value = email
-                command.Parameters.Add("role_id", OdbcType.VarChar).Value = roleid
-
-                command.ExecuteNonQuery()
-                MessageBox.Show("Đăng ký thành công!")
-                ClearFields()
-                Me.Close()
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("An error occurred: " & ex.Message)
-        Finally
-            If connection.State = ConnectionState.Open Then
-                connection.Close()
-            End If
-        End Try
-    End Sub
-
-    ' Close the form
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Me.Close()
-    End Sub
-
     Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If userId <> -1 Then
             ' Load user info for editing
@@ -182,9 +117,73 @@ Public Class AddUser
             Finally
                 connection.Close()
             End Try
+            ' Disable username field for editing
+            txtUsername.Enabled = False
+            txtPassw.Enabled = False
         Else
             LoadRoles()
         End If
 
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Dim username As String = txtUsername.Text.Trim()
+        Dim password As String = txtPassw.Text.Trim()
+        Dim email As String = txtMail.Text.Trim()
+        Dim roleid As Integer = Convert.ToInt32(cmbRole.SelectedValue)
+
+        ' Khởi tạo UserRepository
+        Dim repository As New UserRepository(connection.ConnectionString)
+
+        If Not IsValidEmail(email) Then
+            MessageBox.Show("E-mail không hợp lệ!")
+            Return
+        End If
+
+        Try
+            ' ADD
+            If userId = -1 Then
+                ' Validate inputs
+                If String.IsNullOrEmpty(username) OrElse String.IsNullOrEmpty(password) OrElse String.IsNullOrEmpty(email) OrElse String.IsNullOrEmpty(roleid) Then
+                    MessageBox.Show("Username, Password, Email, and Role không được để trống!")
+                    Return
+                End If
+
+                ' Check if username already exists
+                If IsUsernameTaken(username) Then
+                    MessageBox.Show("Username đã tồn tại. Vui lòng chọn tên khác!")
+                    Return
+                End If
+
+                ' Check password length
+                If password.Length < 6 Then
+                    MessageBox.Show("Password phải có từ 6 ký tự trở lên!")
+                    Return
+                End If
+
+                ' Hash the password
+                Dim hashedPassword As String = HashPassword(password)
+
+                repository.Add(username, hashedPassword, email, roleid)
+                MessageBox.Show("Đăng ký thành công!")
+            Else
+                ' UPDATE
+                repository.Update(userId, email, roleid)
+                MessageBox.Show("Cập nhật thành công!")
+            End If
+
+            ClearFields()
+            ' After successful add or update, before Me.Close()
+            Me.DialogResult = DialogResult.OK
+            Me.Close()
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.Message)
+        End Try
+
+    End Sub
+
+    ' Close the form
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Me.Close()
     End Sub
 End Class

@@ -41,7 +41,7 @@ Partial Class FormMain
         btnAddCustomer.Margin = New Padding(2)
         btnAddCustomer.Name = "btnAddCustomer"
         btnAddCustomer.Size = New Size(128, 47)
-        btnAddCustomer.TabIndex = 0
+        btnAddCustomer.TabIndex = 2
         btnAddCustomer.Text = "Add Customer"
         btnAddCustomer.UseVisualStyleBackColor = True
         ' 
@@ -51,7 +51,7 @@ Partial Class FormMain
         btnEditCustomer.Margin = New Padding(2)
         btnEditCustomer.Name = "btnEditCustomer"
         btnEditCustomer.Size = New Size(128, 47)
-        btnEditCustomer.TabIndex = 0
+        btnEditCustomer.TabIndex = 3
         btnEditCustomer.Text = "Edit Customer"
         btnEditCustomer.UseVisualStyleBackColor = True
         ' 
@@ -61,7 +61,7 @@ Partial Class FormMain
         btnSearch.Margin = New Padding(2)
         btnSearch.Name = "btnSearch"
         btnSearch.Size = New Size(128, 47)
-        btnSearch.TabIndex = 0
+        btnSearch.TabIndex = 4
         btnSearch.Text = "Search"
         btnSearch.UseVisualStyleBackColor = True
         ' 
@@ -71,7 +71,7 @@ Partial Class FormMain
         btnExit.Margin = New Padding(2)
         btnExit.Name = "btnExit"
         btnExit.Size = New Size(128, 47)
-        btnExit.TabIndex = 0
+        btnExit.TabIndex = 7
         btnExit.Text = "Exit"
         btnExit.UseVisualStyleBackColor = True
         ' 
@@ -103,7 +103,7 @@ Partial Class FormMain
         lblUserInfo.Margin = New Padding(2, 0, 2, 0)
         lblUserInfo.Name = "lblUserInfo"
         lblUserInfo.Size = New Size(0, 15)
-        lblUserInfo.TabIndex = 2
+        lblUserInfo.TabIndex = 7
         ' 
         ' btnLogout
         ' 
@@ -111,7 +111,7 @@ Partial Class FormMain
         btnLogout.Margin = New Padding(4, 3, 4, 3)
         btnLogout.Name = "btnLogout"
         btnLogout.Size = New Size(122, 47)
-        btnLogout.TabIndex = 4
+        btnLogout.TabIndex = 6
         btnLogout.Text = "Logout"
         btnLogout.UseVisualStyleBackColor = True
         ' 
@@ -120,7 +120,7 @@ Partial Class FormMain
         btnUser.Location = New Point(105, 52)
         btnUser.Name = "btnUser"
         btnUser.Size = New Size(128, 40)
-        btnUser.TabIndex = 5
+        btnUser.TabIndex = 1
         btnUser.Text = "User Management"
         btnUser.UseVisualStyleBackColor = True
         ' 
