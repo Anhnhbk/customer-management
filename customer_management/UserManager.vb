@@ -85,4 +85,33 @@ Public Class UserManager
         Me.Close()
     End Sub
 
+    Private Sub btnExportReport_Click(sender As Object, e As EventArgs) Handles btnExportReport.Click
+        If grUserView.Rows.Count = 0 Then
+            MessageBox.Show("Không có dữ liệu để xuất báo cáo.")
+            Return
+        End If
+
+        Dim sfd As New SaveFileDialog()
+        sfd.Filter = "CSV files (*.csv)|*.csv"
+        sfd.FileName = "UserList.csv"
+        If sfd.ShowDialog() = DialogResult.OK Then
+            Try
+                Using sw As New IO.StreamWriter(sfd.FileName, False, System.Text.Encoding.UTF8)
+                    ' Write header
+                    Dim headers = grUserView.Columns.Cast(Of DataGridViewColumn)().Select(Function(c) c.HeaderText)
+                    sw.WriteLine(String.Join(",", headers))
+                    ' Write rows
+                    For Each row As DataGridViewRow In grUserView.Rows
+                        If Not row.IsNewRow Then
+                            Dim cells = row.Cells.Cast(Of DataGridViewCell)().Select(Function(c) If(c.Value IsNot Nothing, c.Value.ToString().Replace(",", " "), ""))
+                            sw.WriteLine(String.Join(",", cells))
+                        End If
+                    Next
+                End Using
+                MessageBox.Show("Xuất báo cáo thành công!")
+            Catch ex As Exception
+                MessageBox.Show("Lỗi khi xuất báo cáo: " & ex.Message)
+            End Try
+        End If
+    End Sub
 End Class
