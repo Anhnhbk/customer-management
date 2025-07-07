@@ -1,12 +1,12 @@
 ﻿Imports System.Data.Odbc
-Public Class Customer
-    Private repository As CustomerRepository
-    Private Sub txtPhone_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPhone.KeyPress
-        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
-            e.Handled = True
-        End If
-    End Sub
+Imports System.Data
 
+Public Class Customer
+    Inherits System.Windows.Forms.Form
+
+    Private repository As CustomerRepository
+
+    ' Validate all input fields for the customer form
     Private Function ValidateInput() As Boolean
         If String.IsNullOrWhiteSpace(txtCustomerName.Text) Then
             MessageBox.Show("Tên khách hàng không được để trống!")
@@ -31,6 +31,7 @@ Public Class Customer
         Return True
     End Function
 
+    ' Clear all input fields
     Private Sub ClearFields()
         txtCustomerName.Clear()
         txtAddress.Clear()
@@ -42,10 +43,11 @@ Public Class Customer
 
     Friend currentState As FormState
 
+    ' Configure the UI controls' enabled state
     Private Sub ConfigureUI(bSearch As Boolean, bAdd As Boolean, bUpdate As Boolean,
                             bDelete As Boolean, bClear As Boolean,
-                            tCustomerName As Boolean, tAddress As String, tPhone As String,
-                            tEmail As String, coGender As String, vcustomerView As String)
+                            tCustomerName As Boolean, tAddress As Boolean, tPhone As Boolean,
+                            tEmail As Boolean, coGender As Boolean, vcustomerView As Boolean)
         btnSearch.Enabled = bSearch
         btnAdd.Enabled = bAdd
         btnUpdate.Enabled = bUpdate
@@ -58,6 +60,8 @@ Public Class Customer
         comboGender.Enabled = coGender
         customerView.Enabled = vcustomerView
     End Sub
+
+    ' Update the UI based on the current form state
     Public Sub UpdateUI(currentState)
         Select Case currentState
             Case FormState.Searching
@@ -69,6 +73,7 @@ Public Class Customer
         End Select
     End Sub
 
+    ' Load all customer data into the grid
     Private Sub LoadData()
         Try
             customerView.DataSource = repository.GetAll()
@@ -77,21 +82,20 @@ Public Class Customer
         End Try
     End Sub
 
+    ' Form load event: initialize repository and UI
     Private Sub Customer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         connect_db()
         repository = New CustomerRepository(connection.ConnectionString)
         currentState = FormMain.FormMainState
         UpdateUI(currentState)
         LoadData()
-
-        ' Highlight selected row
         customerView.DefaultCellStyle.SelectionBackColor = Color.LightBlue
         customerView.DefaultCellStyle.SelectionForeColor = Color.Black
     End Sub
 
+    ' Add new customer
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         If Not ValidateInput() Then Return
-
         Try
             repository.Add(txtCustomerName.Text, txtAddress.Text, txtPhone.Text, txtEmail.Text, comboGender.Text)
             MessageBox.Show("Lưu thành công!")
@@ -102,6 +106,7 @@ Public Class Customer
         End Try
     End Sub
 
+    ' Search customers by name
     Private Sub btnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearch.Click
         Try
             customerView.DataSource = repository.SearchByName(txtCustomerName.Text)
@@ -110,6 +115,7 @@ Public Class Customer
         End Try
     End Sub
 
+    ' Delete selected customer
     Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
         If MessageBox.Show("Bạn có chắc chắn muốn xóa khách hàng này?", "Xác nhận xóa", MessageBoxButtons.YesNo) = DialogResult.No Then
             Return
@@ -129,10 +135,12 @@ Public Class Customer
         End If
     End Sub
 
+    ' Clear all fields
     Private Sub btnClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClear.Click
         ClearFields()
     End Sub
 
+    ' Populate fields when a row is selected
     Private Sub customerView_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles customerView.CellClick
         If e.RowIndex >= 0 Then
             Dim row As DataGridViewRow = customerView.Rows(e.RowIndex)
@@ -148,39 +156,6 @@ Public Class Customer
             If customerView.Columns.Contains("email") Then
                 txtEmail.Text = row.Cells("email").Value.ToString()
             End If
-            If customerView.Columns.Contains("gender") Then
-                comboGender.Text = row.Cells("gender").Value.ToString()
-            End If
         End If
-    End Sub
-
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Me.Close()
-    End Sub
-
-    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        If customerView.SelectedRows.Count = 0 OrElse Not customerView.Columns.Contains("id") Then
-            MessageBox.Show("Chọn một khách hàng để cập nhật!")
-            Return
-        End If
-
-        If Not ValidateInput() Then Return
-
-        Dim id As Integer = CInt(customerView.SelectedRows(0).Cells("id").Value)
-        Try
-            repository.Update(
-                id,
-                txtCustomerName.Text,
-                txtAddress.Text,
-                txtPhone.Text,
-                txtEmail.Text,
-                comboGender.Text
-            )
-            MessageBox.Show("Cập nhật thành công!")
-            LoadData()
-            ClearFields()
-        Catch ex As Exception
-            MessageBox.Show("Lỗi: " & ex.Message)
-        End Try
     End Sub
 End Class
