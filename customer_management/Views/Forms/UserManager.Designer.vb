@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class UserManager
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class UserManagerForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class UserManager
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         txtSearch = New TextBox()
         Label1 = New Label()
@@ -49,7 +49,7 @@ Partial Class UserManager
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label1.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         Label1.Location = New Point(26, 32)
         Label1.Name = "Label1"
         Label1.Size = New Size(91, 20)
@@ -58,7 +58,7 @@ Partial Class UserManager
         ' 
         ' btnSearch
         ' 
-        btnSearch.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnSearch.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnSearch.Location = New Point(335, 27)
         btnSearch.Margin = New Padding(3, 4, 3, 4)
         btnSearch.Name = "btnSearch"
@@ -123,7 +123,7 @@ Partial Class UserManager
         ' btnAddUser
         ' 
         btnAddUser.BackColor = Color.FromArgb(CByte(128), CByte(255), CByte(128))
-        btnAddUser.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnAddUser.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         btnAddUser.Location = New Point(100, 470)
         btnAddUser.Margin = New Padding(3, 4, 3, 4)
         btnAddUser.Name = "btnAddUser"
@@ -135,7 +135,7 @@ Partial Class UserManager
         ' btnEditUser
         ' 
         btnEditUser.BackColor = Color.FromArgb(CByte(128), CByte(255), CByte(255))
-        btnEditUser.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnEditUser.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         btnEditUser.Location = New Point(207, 470)
         btnEditUser.Margin = New Padding(3, 4, 3, 4)
         btnEditUser.Name = "btnEditUser"
@@ -147,7 +147,7 @@ Partial Class UserManager
         ' btnDeleteUser
         ' 
         btnDeleteUser.BackColor = Color.FromArgb(CByte(255), CByte(128), CByte(128))
-        btnDeleteUser.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnDeleteUser.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         btnDeleteUser.Location = New Point(316, 470)
         btnDeleteUser.Margin = New Padding(3, 4, 3, 4)
         btnDeleteUser.Name = "btnDeleteUser"
@@ -158,7 +158,7 @@ Partial Class UserManager
         ' 
         ' btnExit
         ' 
-        btnExit.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnExit.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         btnExit.Location = New Point(422, 470)
         btnExit.Margin = New Padding(3, 4, 3, 4)
         btnExit.Name = "btnExit"
@@ -170,7 +170,7 @@ Partial Class UserManager
         ' btnExportReport
         ' 
         btnExportReport.BackColor = Color.FromArgb(CByte(255), CByte(192), CByte(192))
-        btnExportReport.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExportReport.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnExportReport.Location = New Point(482, 27)
         btnExportReport.Name = "btnExportReport"
         btnExportReport.Size = New Size(149, 37)
@@ -178,9 +178,9 @@ Partial Class UserManager
         btnExportReport.Text = "Export User List"
         btnExportReport.UseVisualStyleBackColor = False
         ' 
-        ' UserManager
+        ' UserManagerForm
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(649, 565)
         Controls.Add(btnExportReport)
@@ -193,7 +193,7 @@ Partial Class UserManager
         Controls.Add(Label1)
         Controls.Add(txtSearch)
         Margin = New Padding(3, 4, 3, 4)
-        Name = "UserManager"
+        Name = "UserManagerForm"
         Text = "UserManager"
         CType(grUserView, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

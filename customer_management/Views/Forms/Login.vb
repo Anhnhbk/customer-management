@@ -1,6 +1,6 @@
 ﻿Imports System.Data.Odbc
 
-Public Class Login
+Public Class LoginForm
     Public Property LoginUser As String
     Public Property userRoleId As Integer
 

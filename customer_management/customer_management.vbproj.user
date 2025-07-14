@@ -11,19 +11,22 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="AddUser.vb">
+    <Compile Update="Views\Forms\AddUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Customer.vb">
+    <Compile Update="Views\Forms\Customer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormMain.vb">
+    <Compile Update="Views\Forms\CustomerEditForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Login.vb">
+    <Compile Update="Views\Forms\FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserManager.vb">
+    <Compile Update="Views\Forms\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\UserManager.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class AddUser
+Partial Class AddUserForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -144,7 +144,7 @@ Partial Class AddUser
         btnClear.Text = "Clear"
         btnClear.UseVisualStyleBackColor = True
         ' 
-        ' AddUser
+        ' AddUserForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
@@ -161,7 +161,7 @@ Partial Class AddUser
         Controls.Add(txtPassw)
         Controls.Add(txtUsername)
         Margin = New Padding(3, 2, 3, 2)
-        Name = "AddUser"
+        Name = "AddUserForm"
         Text = "Add User"
         ResumeLayout(False)
         PerformLayout()

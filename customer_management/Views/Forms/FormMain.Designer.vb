@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormMain
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,10 @@ Partial Class FormMain
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
-        btnAddCustomer = New Button()
-        btnEditCustomer = New Button()
-        btnSearch = New Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
+        btnCustomerManager = New Button()
         btnExit = New Button()
         btnLogin = New Button()
         PictureBox1 = New PictureBox()
@@ -35,35 +33,14 @@ Partial Class FormMain
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' btnAddCustomer
+        ' btnCustomerManager
         ' 
-        btnAddCustomer.Location = New Point(105, 110)
-        btnAddCustomer.Margin = New Padding(2)
-        btnAddCustomer.Name = "btnAddCustomer"
-        btnAddCustomer.Size = New Size(128, 47)
-        btnAddCustomer.TabIndex = 2
-        btnAddCustomer.Text = "Add Customer"
-        btnAddCustomer.UseVisualStyleBackColor = True
-        ' 
-        ' btnEditCustomer
-        ' 
-        btnEditCustomer.Location = New Point(105, 173)
-        btnEditCustomer.Margin = New Padding(2)
-        btnEditCustomer.Name = "btnEditCustomer"
-        btnEditCustomer.Size = New Size(128, 47)
-        btnEditCustomer.TabIndex = 3
-        btnEditCustomer.Text = "Edit Customer"
-        btnEditCustomer.UseVisualStyleBackColor = True
-        ' 
-        ' btnSearch
-        ' 
-        btnSearch.Location = New Point(105, 239)
-        btnSearch.Margin = New Padding(2)
-        btnSearch.Name = "btnSearch"
-        btnSearch.Size = New Size(128, 47)
-        btnSearch.TabIndex = 4
-        btnSearch.Text = "Search"
-        btnSearch.UseVisualStyleBackColor = True
+        btnCustomerManager.Location = New Point(105, 110)
+        btnCustomerManager.Name = "btnCustomerManager"
+        btnCustomerManager.Size = New Size(128, 47)
+        btnCustomerManager.TabIndex = 2
+        btnCustomerManager.Text = "Customer Management"
+        btnCustomerManager.UseVisualStyleBackColor = True
         ' 
         ' btnExit
         ' 
@@ -124,9 +101,9 @@ Partial Class FormMain
         btnUser.Text = "User Management"
         btnUser.UseVisualStyleBackColor = True
         ' 
-        ' FormMain
+        ' MainForm
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(700, 422)
         Controls.Add(btnUser)
@@ -135,11 +112,9 @@ Partial Class FormMain
         Controls.Add(PictureBox1)
         Controls.Add(btnExit)
         Controls.Add(btnLogin)
-        Controls.Add(btnSearch)
-        Controls.Add(btnEditCustomer)
-        Controls.Add(btnAddCustomer)
+        Controls.Add(btnCustomerManager)
         Margin = New Padding(2)
-        Name = "FormMain"
+        Name = "MainForm"
         Text = "FormMain"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -147,9 +122,7 @@ Partial Class FormMain
 
     End Sub
 
-    Friend WithEvents btnAddCustomer As Button
-    Friend WithEvents btnEditCustomer As Button
-    Friend WithEvents btnSearch As Button
+    Friend WithEvents btnCustomerManager As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents btnLogin As Button
     Friend WithEvents PictureBox1 As PictureBox

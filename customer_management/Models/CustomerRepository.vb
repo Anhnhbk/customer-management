@@ -52,4 +52,16 @@ Public Class CustomerRepository
         }
         ExecuteNonQuery(sql, parameters)
     End Sub
+
+    Public Function GetById(id As Integer) As DataRow
+        Dim sql As String = "SELECT * FROM customers WHERE id = ?"
+        Dim parameters = New List(Of OdbcParameter) From {
+            New OdbcParameter("id", OdbcType.Int) With {.Value = id}
+        }
+        Dim dt = ExecuteQuery(sql, parameters)
+        If dt.Rows.Count > 0 Then
+            Return dt.Rows(0)
+        End If
+        Return Nothing
+    End Function
 End Class

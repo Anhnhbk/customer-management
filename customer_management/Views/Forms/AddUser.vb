@@ -1,7 +1,7 @@
 ﻿Imports System.Data.Odbc
 Imports System.Text.RegularExpressions
 
-Public Class AddUser
+Public Class AddUserForm
 
     Private connection As OdbcConnection
     Private userId As Integer = -1

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <StartupObject>customer_management.FormMain</StartupObject>
+    <StartupObject>customer_management.AppEntry</StartupObject>
     <MyType>WindowsForms</MyType>
 
     <UseWindowsForms>true</UseWindowsForms>
@@ -15,12 +15,6 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="FormMain.Designer.vb">
-      <DependentUpon>FormMain.vb</DependentUpon>
-    </Compile>
-    <Compile Update="Login.Designer.vb">
-      <DependentUpon>Login.vb</DependentUpon>
-    </Compile>
     <Compile Update="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -31,8 +25,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Update="AddUser.Designer.vb">
+    <Compile Update="Views\Forms\AddUser.Designer.vb">
       <DependentUpon>AddUser.vb</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Forms\FormMain.Designer.vb">
+      <DependentUpon>FormMain.vb</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Forms\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Login
+Partial Class LoginForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -93,7 +93,7 @@ Partial Class Login
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
-        'Login
+        'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -105,7 +105,7 @@ Partial Class Login
         Me.Controls.Add(Me.txtPassw)
         Me.Controls.Add(Me.txtUsername)
         Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "Login"
+        Me.Name = "LoginForm"
         Me.Text = "Login"
         Me.ResumeLayout(False)
         Me.PerformLayout()

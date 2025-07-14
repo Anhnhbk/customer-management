@@ -1,6 +1,6 @@
 ﻿Imports System.Data.Odbc
 
-Public Class UserManager
+Public Class UserManagerForm
     Private repository As UserRepository
     Private Sub LoadUsers(Optional searchName As String = "")
         btnAddUser.Enabled = False
@@ -45,7 +45,7 @@ Public Class UserManager
     End Sub
 
     Private Sub btnAddUser_Click(sender As Object, e As EventArgs) Handles btnAddUser.Click
-        Dim addForm As New AddUser(connection)
+        Dim addForm As New AddUserForm(connection)
         If addForm.ShowDialog() = DialogResult.OK Then
             LoadUsers()
         End If
@@ -58,7 +58,7 @@ Public Class UserManager
         End If
         Dim row As DataGridViewRow = grUserView.SelectedRows(0)
         Dim userId As Integer = CInt(row.Cells("userId").Value)
-        Dim addForm As New AddUser(connection, userId)
+        Dim addForm As New AddUserForm(connection, userId)
         If addForm.ShowDialog() = DialogResult.OK Then
             LoadUsers()
         End If
